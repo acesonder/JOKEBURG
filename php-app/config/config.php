@@ -15,7 +15,7 @@ require_once 'database.php';
 // Application settings
 define('APP_NAME', 'JOKEBURG - Cobourg Community Success');
 define('APP_VERSION', '1.0.0');
-define('BASE_URL', 'http://localhost/JOKEBURG/php-app');
+define('BASE_URL', 'http://localhost:8080');
 
 // Theme settings
 $themes = [
