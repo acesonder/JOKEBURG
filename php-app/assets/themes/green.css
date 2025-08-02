@@ -1,0 +1,33 @@
+/**
+ * Nature Green Theme for JOKEBURG
+ * File: /php-app/assets/themes/green.css
+ */
+
+.theme-green {
+    --primary-color: #28a745;
+    --primary-dark: #1e7e34;
+    --primary-light: #71dd8a;
+    --secondary-color: #20c997;
+    --accent-color: #17a2b8;
+}
+
+.theme-green .navbar {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+.theme-green .hero-section {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.theme-green .btn-primary {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border: none;
+}
+
+.theme-green .btn-primary:hover {
+    background: linear-gradient(135deg, #1e7e34, #155724);
+}
+
+.theme-green .card-header {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}

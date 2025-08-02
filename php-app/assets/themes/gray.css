@@ -1,0 +1,6 @@
+/* Gray Theme */
+.theme-gray { --primary-color: #6c757d; --primary-dark: #545b62; }
+.theme-gray .navbar { background: linear-gradient(135deg, #6c757d 0%, #545b62 100%) !important; }
+.theme-gray .hero-section { background: linear-gradient(135deg, #6c757d 0%, #545b62 100%); }
+.theme-gray .btn-primary { background: linear-gradient(135deg, #6c757d, #545b62); border: none; }
+.theme-gray .card-header { background: linear-gradient(135deg, #6c757d, #545b62); }

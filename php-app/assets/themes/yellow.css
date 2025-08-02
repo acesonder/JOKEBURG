@@ -1,0 +1,6 @@
+/* Yellow Theme */
+.theme-yellow { --primary-color: #ffc107; --primary-dark: #d39e00; }
+.theme-yellow .navbar { background: linear-gradient(135deg, #ffc107 0%, #d39e00 100%) !important; }
+.theme-yellow .hero-section { background: linear-gradient(135deg, #ffc107 0%, #d39e00 100%); }
+.theme-yellow .btn-primary { background: linear-gradient(135deg, #ffc107, #d39e00); border: none; color: #000; }
+.theme-yellow .card-header { background: linear-gradient(135deg, #ffc107, #d39e00); color: #000; }

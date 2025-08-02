@@ -1,0 +1,6 @@
+/* Purple Theme */
+.theme-purple { --primary-color: #6f42c1; --primary-dark: #5a32a3; }
+.theme-purple .navbar { background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%) !important; }
+.theme-purple .hero-section { background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%); }
+.theme-purple .btn-primary { background: linear-gradient(135deg, #6f42c1, #5a32a3); border: none; }
+.theme-purple .card-header { background: linear-gradient(135deg, #6f42c1, #5a32a3); }

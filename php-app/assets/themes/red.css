@@ -1,0 +1,6 @@
+/* Red Theme */
+.theme-red { --primary-color: #dc3545; --primary-dark: #b02a37; }
+.theme-red .navbar { background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%) !important; }
+.theme-red .hero-section { background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); }
+.theme-red .btn-primary { background: linear-gradient(135deg, #dc3545, #b02a37); border: none; }
+.theme-red .card-header { background: linear-gradient(135deg, #dc3545, #b02a37); }

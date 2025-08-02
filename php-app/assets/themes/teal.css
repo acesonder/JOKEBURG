@@ -1,0 +1,6 @@
+/* Teal Theme */
+.theme-teal { --primary-color: #20c997; --primary-dark: #17a085; }
+.theme-teal .navbar { background: linear-gradient(135deg, #20c997 0%, #17a085 100%) !important; }
+.theme-teal .hero-section { background: linear-gradient(135deg, #20c997 0%, #17a085 100%); }
+.theme-teal .btn-primary { background: linear-gradient(135deg, #20c997, #17a085); border: none; }
+.theme-teal .card-header { background: linear-gradient(135deg, #20c997, #17a085); }

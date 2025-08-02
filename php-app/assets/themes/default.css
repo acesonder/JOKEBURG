@@ -1,0 +1,33 @@
+/**
+ * Default Blue Theme for JOKEBURG
+ * File: /php-app/assets/themes/default.css
+ */
+
+.theme-default {
+    --primary-color: #007bff;
+    --primary-dark: #0056b3;
+    --primary-light: #66b3ff;
+    --secondary-color: #6c757d;
+    --accent-color: #17a2b8;
+}
+
+.theme-default .navbar {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+}
+
+.theme-default .hero-section {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+.theme-default .btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+}
+
+.theme-default .btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+.theme-default .card-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}

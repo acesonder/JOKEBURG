@@ -1,0 +1,6 @@
+/* Pink Theme */
+.theme-pink { --primary-color: #e83e8c; --primary-dark: #d91a72; }
+.theme-pink .navbar { background: linear-gradient(135deg, #e83e8c 0%, #d91a72 100%) !important; }
+.theme-pink .hero-section { background: linear-gradient(135deg, #e83e8c 0%, #d91a72 100%); }
+.theme-pink .btn-primary { background: linear-gradient(135deg, #e83e8c, #d91a72); border: none; }
+.theme-pink .card-header { background: linear-gradient(135deg, #e83e8c, #d91a72); }

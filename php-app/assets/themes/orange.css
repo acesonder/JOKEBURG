@@ -1,0 +1,6 @@
+/* Orange Theme */
+.theme-orange { --primary-color: #fd7e14; --primary-dark: #e8590c; }
+.theme-orange .navbar { background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%) !important; }
+.theme-orange .hero-section { background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%); }
+.theme-orange .btn-primary { background: linear-gradient(135deg, #fd7e14, #e8590c); border: none; }
+.theme-orange .card-header { background: linear-gradient(135deg, #fd7e14, #e8590c); }

@@ -1,0 +1,57 @@
+/**
+ * Dark Theme for JOKEBURG
+ * File: /php-app/assets/themes/dark.css
+ */
+
+.theme-dark {
+    --primary-color: #343a40;
+    --primary-dark: #1d2124;
+    --primary-light: #6c757d;
+    --secondary-color: #495057;
+    --accent-color: #fd7e14;
+    --bg-color: #212529;
+    --text-color: #fff;
+}
+
+.theme-dark body {
+    background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+    color: var(--text-color);
+}
+
+.theme-dark .navbar {
+    background: linear-gradient(135deg, #343a40 0%, #1d2124 100%) !important;
+}
+
+.theme-dark .hero-section {
+    background: linear-gradient(135deg, #343a40 0%, #1d2124 100%);
+}
+
+.theme-dark .card {
+    background: rgba(52, 58, 64, 0.95);
+    color: var(--text-color);
+}
+
+.theme-dark .btn-primary {
+    background: linear-gradient(135deg, #fd7e14, #e8590c);
+    border: none;
+}
+
+.theme-dark .btn-primary:hover {
+    background: linear-gradient(135deg, #e8590c, #d54000);
+}
+
+.theme-dark .card-header {
+    background: linear-gradient(135deg, #343a40, #1d2124);
+}
+
+.theme-dark .form-control {
+    background-color: #495057;
+    border-color: #6c757d;
+    color: var(--text-color);
+}
+
+.theme-dark .form-control:focus {
+    background-color: #495057;
+    border-color: #fd7e14;
+    color: var(--text-color);
+}
