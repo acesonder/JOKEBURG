@@ -17,8 +17,6 @@
 
 ## Project Vision
 
-## Project Vision
-
 ### Our History, Our Truth
 Cobourg is a vibrant community with a haunting past of homelessness, addiction, and mental health challenges. Over the years, inadequate support systems have left many vulnerable residents isolated and without hope, resulting in cycles of poverty, instability, and untreated trauma.
 
@@ -428,54 +426,74 @@ Notification Settings:
 	•	Standard notifications: Email or in-app badge notification.
 	•	Customizable notification frequency (instant, hourly, daily summary).
 
-⸻
+## Community Resources
 
-4. Curated Service List (Cobourg)
-	•	Transition House Emergency Shelter
-	•	Shelter services, meals, referrals
-	•	(905) 377-0378
-	•	transitionhouse.ca
-	•	Northumberland Hills Hospital Community Mental Health
-	•	Counseling, addiction services
-	•	(905) 377-9891
-	•	nhh.ca
-	•	Fourcast Addiction Services
-	•	Counseling, addiction support
-	•	(905) 377-9111
-	•	fourcast.ca
-	•	Salvation Army Cobourg
-	•	Food bank, emergency supplies
-	•	(905) 373-9440
-	•	salvationarmy.ca
-	•	Cornerstone Family Violence Prevention Centre
-	•	Crisis support, shelter for families
-	•	(905) 372-0746
-	•	cornerstonenorthumberland.ca
-	•	Green Wood Coalition
-	•	Street outreach, harm reduction, peer support
-	•	(905) 885-8700
-	•	greenwoodcoalition.com
+### Curated Service List (Cobourg)
 
-⸻
-5. Harm Reduction Supply Workflow
+#### Transition House Emergency Shelter
+- **Services:** Shelter services, meals, referrals
+- **Phone:** (905) 377-0378
+- **Website:** transitionhouse.ca
 
-Workflow:
-	•	Outreach worker selects client (using unique client code or name).
-	•	Worker orders specific harm reduction supplies (e.g., naloxone, clean syringes, wound care kits).
-	•	Inventory is automatically updated.
-	•	Supplies marked as delivered upon client receipt.
-	•	Workers record notes about supply use or client feedback.
+#### Northumberland Hills Hospital Community Mental Health
+- **Services:** Counseling, addiction services
+- **Phone:** (905) 377-9891
+- **Website:** nhh.ca
 
-Products Carried:
-	•	Naloxone kits
-	•	Sterile needles and syringes
-	•	Safe disposal containers
-	•	Wound care kits
-	•	Sanitary/hygiene products
-	•	Basic first aid supplies
+#### Fourcast Addiction Services
+- **Services:** Counseling, addiction support
+- **Phone:** (905) 377-9111
+- **Website:** fourcast.ca
 
-Inventory Management:
-	•	Admins can add/remove products, update quantities, and set reorder alerts.
-	•	Real-time inventory tracking dashboard for administrators and outreach teams.
+#### Salvation Army Cobourg
+- **Services:** Food bank, emergency supplies
+- **Phone:** (905) 373-9440
+- **Website:** salvationarmy.ca
 
+#### Cornerstone Family Violence Prevention Centre
+- **Services:** Crisis support, shelter for families
+- **Phone:** (905) 372-0746
+- **Website:** cornerstonenorthumberland.ca
 
+#### Green Wood Coalition
+- **Services:** Street outreach, harm reduction, peer support
+- **Phone:** (905) 885-8700
+- **Website:** greenwoodcoalition.com
+
+### Harm Reduction Supply Workflow
+
+#### Workflow Process
+1. Outreach worker selects client (using unique client code or name)
+2. Worker orders specific harm reduction supplies (e.g., naloxone, clean syringes, wound care kits)
+3. Inventory is automatically updated
+4. Supplies marked as delivered upon client receipt
+5. Workers record notes about supply use or client feedback
+
+#### Products Carried
+- Naloxone kits
+- Sterile needles and syringes
+- Safe disposal containers
+- Wound care kits
+- Sanitary/hygiene products
+- Basic first aid supplies
+
+#### Inventory Management
+- Admins can add/remove products, update quantities, and set reorder alerts
+- Real-time inventory tracking dashboard for administrators and outreach teams
+
+## Contributing
+
+We welcome contributions to the JOKEBURG project! Please follow our development workflow and contributing guidelines outlined in the [Project Setup](#project-setup) section.
+
+### Getting Started
+1. Review the development workflow and tasklist
+2. Set up your development environment
+3. Choose a feature or task from the workflow phases
+4. Submit a pull request with your improvements
+
+### Contact
+For questions about contributing or the project, please open an issue in this repository.
+
+---
+
+*Together, we can create meaningful change for Cobourg's community.*
