@@ -174,7 +174,7 @@ const Assessment: React.FC = () => {
             )}
           </ul>
 
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div className="flex flex-col sm:flex-row gap-3">
             <button className="btn btn-primary">Save Assessment</button>
             <button className="btn btn-secondary">Schedule Follow-up</button>
             <button className="btn btn-secondary" onClick={() => {
