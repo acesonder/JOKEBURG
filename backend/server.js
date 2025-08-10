@@ -53,6 +53,22 @@ app.use('*', (req, res) => {
 // Start server
 const server = app.listen(PORT, () => {
   console.log(`JOKEBURG Backend server running on port ${PORT}`);
+}).on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error('\n❌ ERROR: Port conflict detected!');
+    console.error(`Port ${PORT} is already in use by another process.`);
+    console.error('\n📋 To fix this issue, try one of the following:');
+    console.error('1. Kill the existing process using the port:');
+    console.error(`   • Find the process: lsof -ti:${PORT}`);
+    console.error(`   • Kill the process: kill -9 $(lsof -ti:${PORT})`);
+    console.error('2. Use a different port by setting the PORT environment variable:');
+    console.error(`   • PORT=3001 npm run dev`);
+    console.error('3. Check if you have another instance of this server running\n');
+    process.exit(1);
+  } else {
+    console.error('❌ Server error:', err);
+    process.exit(1);
+  }
 });
 
 // Socket.IO setup
@@ -78,3 +94,28 @@ io.on('connection', (socket) => {
 });
 
 module.exports = { app, io };
+
+// Graceful shutdown handling
+const gracefulShutdown = (signal) => {
+  console.log(`\n📥 Received ${signal}. Starting graceful shutdown...`);
+  
+  server.close(() => {
+    console.log('✅ HTTP server closed.');
+    
+    // Close Socket.IO connections
+    io.close(() => {
+      console.log('✅ Socket.IO server closed.');
+      process.exit(0);
+    });
+  });
+  
+  // Force close server after 30 seconds
+  setTimeout(() => {
+    console.error('❌ Could not close connections in time, forcefully shutting down');
+    process.exit(1);
+  }, 30000);
+};
+
+// Listen for termination signals
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
