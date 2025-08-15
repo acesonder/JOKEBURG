@@ -52,7 +52,7 @@ const HomelessnessInfo: React.FC = () => {
       {
         id: '5',
         date: '2024-05-12',
-        title: 'Alex\'s Housing Success',
+        title: "Alex's Housing Success",
         description: 'Alex Thompson successfully transitioned from emergency shelter to permanent housing through integrated support services.',
         category: 'story',
         source: 'Case Management Team'
