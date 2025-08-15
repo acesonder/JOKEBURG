@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { mgtDocumentData } from '../types/mgtDocument';
 
 interface TimelineItem {
   id: string;
@@ -108,6 +109,11 @@ const HomelessnessInfo: React.FC = () => {
           <div className="alert alert-info">
             <strong>Note:</strong> Document integration pending. This section will display the contents 
             of the uploaded out99.txt file once processed.
+            {mgtDocumentData && (
+              <p className="mb-0 mt-2">
+                MGT Document loaded: {mgtDocumentData.title} (Version {mgtDocumentData.version})
+              </p>
+            )}
           </div>
         </div>
       </div>
