@@ -30,14 +30,19 @@
   --gray-900: #111827;
   
   --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
   --success-500: #10b981;
   --success-600: #059669;
   
   --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
   --warning-500: #f59e0b;
   --warning-600: #d97706;
   
   --danger-50: #fef2f2;
+  --danger-200: #fecaca;
   --danger-500: #ef4444;
   --danger-600: #dc2626;
   

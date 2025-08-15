@@ -10,6 +10,7 @@ import Assessment from './pages/Assessment';
 import Messages from './pages/Messages';
 import Resources from './pages/Resources';
 import Supplies from './pages/Supplies';
+import HomelessnessInfo from './pages/HomelessnessInfo';
 
 // Import components
 import Header from './components/Header';
@@ -31,6 +32,7 @@ function App() {
               <Route path="/messages" element={<Messages />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/supplies" element={<Supplies />} />
+              <Route path="/homelessness" element={<HomelessnessInfo />} />
             </Routes>
           </main>
         </div>
