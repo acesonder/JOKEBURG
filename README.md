@@ -1,499 +1,643 @@
-# JOKEBURG
-## Cobourg Community Success Web Application
+# JOKEBURG - Cobourg Community Success Platform
 
-**Cobourg: Confronting Our Past, Creating Our Future**
+**PHP + MySQL Web Application for Community Case Management**
+
+A comprehensive web application built with PHP and MySQL to support vulnerable individuals in the Cobourg community through case management, assessment tools, and resource coordination.
 
 ## Table of Contents
-- [Project Vision](#project-vision)
-- [Development Workflow & Tasklist](#development-workflow--tasklist)
-- [Project Setup](#project-setup)
-- [System Overview](#system-overview)
-- [User Roles](#user-roles)
-- [Features & Services](#features--services)
-- [Standard Operating Procedures](#standard-operating-procedures)
-- [Technical Specifications](#technical-specifications)
-- [Community Resources](#community-resources)
-- [Contributing](#contributing)
 
-## Project Vision
+- [Prerequisites](#prerequisites)
+- [Local Setup](#local-setup)
+- [Database Setup](#database-setup)
+- [Application Structure](#application-structure)
+- [Demo Accounts](#demo-accounts)
+- [AJAX Endpoints](#ajax-endpoints)
+- [Error Logging & Troubleshooting](#error-logging--troubleshooting)
+- [Security & Validation](#security--validation)
+- [Responsive UI Testing](#responsive-ui-testing)
+- [QA Checklist](#qa-checklist)
 
-### Our History, Our Truth
-Cobourg is a vibrant community with a haunting past of homelessness, addiction, and mental health challenges. Over the years, inadequate support systems have left many vulnerable residents isolated and without hope, resulting in cycles of poverty, instability, and untreated trauma.
+## Prerequisites
 
-Yet within this reality lies resilience and strength—a community determined to rewrite its story.
+### Required Software
 
-### The Challenge We Face
+- **PHP 8.1+** with the following extensions:
+  - PDO and PDO_MySQL
+  - OpenSSL
+  - mbstring
+  - JSON
+  - Session support
+- **MySQL 8.0+** or MariaDB 10.4+
+- **phpMyAdmin** (for database management)
+- **Web Server** (Apache/Nginx) or PHP built-in server for development
 
-Today, many Cobourg residents still struggle with housing insecurity, untreated mental health conditions, and substance dependence. Current services, although vital, often fall short due to fragmented coordination, resource gaps, and barriers to accessing support.
+### Check Your Installation
 
-It is clear that a comprehensive, unified response is urgently needed.
-
-### Hope for a New Beginning
-
-Our vision is clear: to transform Cobourg into a community where every individual can thrive. We believe in success stories—not broken systems. By providing compassionate, integrated support, we can create tangible pathways out of crisis and into stability.
-
-### What We Offer
-
-**Comprehensive Case Management:**
-- Individualized care plans
-- Progress tracking and automated follow-ups
-- Secure and transparent data management
-
-**Smart Assessment and Rapid Response:**
-- Real-time identification of client needs
-- Immediate connection to essential services
-
-**Integrated Communication Platform:**
-- Seamless coordination between clients, outreach workers, and service providers
-- Accessible, secure messaging on desktop and mobile
-
-**Community Resource Network:**
-- Curated directory of local services, clearly accessible and regularly updated
-- Streamlined referral system
-
-**Harm Reduction & Peer Support:**
-- Essential supplies readily available through an efficient distribution network
-- Peer-led groups fostering support and accountability
-
-**Transparent Analytics & Accountability:**
-- Real-time data tracking and public transparency
-- Continuous feedback loop to enhance service effectiveness
-
-### Together, We Can Turn the Page
-
-Join us as we rebuild trust, inspire hope, and create lasting success. Cobourg’s future depends on us working together—ensuring that every resident has the opportunity to thrive.
-
-Let’s create meaningful change, today.
-## Development Workflow & Tasklist
-
-### Phase 1: Foundation Setup
-- [ ] **Project Architecture & Technology Stack**
-  - [ ] Choose web framework (React/Vue.js for frontend, Node.js/Django for backend)
-  - [ ] Set up database schema (PostgreSQL recommended for data integrity)
-  - [ ] Configure authentication and authorization system
-  - [ ] Set up development environment and CI/CD pipeline
-  - [ ] Implement security protocols for sensitive data handling
-
-- [ ] **Core Infrastructure**
-  - [ ] User management system with role-based access control
-  - [ ] Database design for client profiles, case management, and audit trails
-  - [ ] API design for mobile and web applications
-  - [ ] Secure messaging infrastructure
-  - [ ] File upload and document management system
-
-### Phase 2: Core Features Development
-- [ ] **User Authentication & Profiles**
-  - [ ] Client registration and profile management
-  - [ ] Outreach worker dashboard
-  - [ ] Service provider portal
-  - [ ] Administrative oversight panel
-  - [ ] Privacy controls and consent management
-
-- [ ] **Case Management System**
-  - [ ] Client profile creation and editing
-  - [ ] Progress tracking dashboards
-  - [ ] Automated follow-up alerts
-  - [ ] Goal setting and milestone tracking
-  - [ ] Care plan management
-
-- [ ] **Smart Assessment Tools**
-  - [ ] Dynamic needs assessment survey
-  - [ ] Real-time scoring and risk analysis
-  - [ ] Trauma-informed question design
-  - [ ] Mobile-responsive assessment interface
-  - [ ] Assessment history and trends
-
-### Phase 3: Communication & Coordination
-- [ ] **Messaging System**
-  - [ ] Secure in-app messaging
-  - [ ] Mobile chat interface
-  - [ ] Notification system
-  - [ ] File sharing capabilities
-  - [ ] Group messaging for team coordination
-
-- [ ] **Resource Management**
-  - [ ] Service directory and mapping
-  - [ ] Referral system
-  - [ ] Appointment scheduling
-  - [ ] Resource availability tracking
-  - [ ] Integration with external service providers
-
-### Phase 4: Specialized Features
-- [ ] **Harm Reduction Platform**
-  - [ ] Supply ordering system
-  - [ ] Inventory management
-  - [ ] Distribution tracking
-  - [ ] Client supply history
-  - [ ] Automated reorder alerts
-
-- [ ] **Analytics & Reporting**
-  - [ ] Real-time dashboard development
-  - [ ] Outcome tracking metrics
-  - [ ] Public transparency portal
-  - [ ] Compliance reporting tools
-  - [ ] Data visualization components
-
-### Phase 5: Testing & Deployment
-- [ ] **Quality Assurance**
-  - [ ] Unit testing for all components
-  - [ ] Integration testing
-  - [ ] Security penetration testing
-  - [ ] User acceptance testing with stakeholders
-  - [ ] Performance optimization
-
-- [ ] **Deployment & Launch**
-  - [ ] Production environment setup
-  - [ ] Data migration planning
-  - [ ] Staff training materials
-  - [ ] User onboarding processes
-  - [ ] Launch strategy and rollout plan
-
-### Ongoing Maintenance & Improvement
-- [ ] **Continuous Development**
-  - [ ] User feedback collection and analysis
-  - [ ] Feature enhancement based on usage data
-  - [ ] Security updates and monitoring
-  - [ ] Integration with new community services
-  - [ ] Regular system audits and optimizations
-
-## Project Setup
-
-### Prerequisites
-- Node.js 18+ (for JavaScript/TypeScript development)
-- Database system (PostgreSQL recommended)
-- Git for version control
-- Code editor (VS Code recommended)
-
-### Development Environment Setup
 ```bash
-# Clone the repository
-git clone https://github.com/acesonder/JOKEBURG.git
-cd JOKEBURG
+# Check PHP version and extensions
+php -v
+php -m | grep -E "(pdo|mysql|openssl|mbstring|json)"
 
-# Install dependencies (when package.json is created)
-npm install
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your local configuration
-
-# Set up database
-npm run db:setup
-
-# Start development server
-npm run dev
+# Check MySQL version
+mysql --version
 ```
 
-### Contributing Guidelines
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/feature-name`)
-3. Make your changes following the coding standards
-4. Write or update tests as needed
-5. Commit your changes (`git commit -m 'Add some feature'`)
-6. Push to the branch (`git push origin feature/feature-name`)
-7. Open a Pull Request
+### Optional Tools
 
-## System Overview
+- **Composer** (if managing PHP dependencies)
+- **Node.js & npm** (for frontend assets if needed)
 
+## Local Setup
 
-To effectively coordinate efforts among staff, outreach workers, service providers, and clients to address homelessness, addiction, and mental health in Cobourg. The platform empowers vulnerable individuals to become success stories through transparent, accessible, and integrated support.
+### 1. Clone the Repository
 
-## User Roles
+```bash
+git clone https://github.com/acesonder/JOKEBURG.git
+cd JOKEBURG
+```
 
-### 1. Clients
-- Secure individual portals
-- Easy access to personal care plans
-- Tools for self-assessment and goal tracking
-- Appointment scheduling and automated reminders
-- Access to resources, harm reduction supplies, and peer support
-- Consent management for information sharing
+### 2. Configure Database Connection
 
-### 2. Outreach Workers
-- Mobile-friendly case management tools
-- Real-time data collection (notes, incident logs, supply requests)
-- Direct client communication (chat, SMS notifications)
-- Geolocation and mapping for outreach and harm reduction
-- Instant referral capabilities to various services
+Copy and edit the database configuration:
 
-### 3. Service Providers
-- Dashboard for managing client referrals and appointments
-- Secure communication with outreach teams and other providers
-- Analytics for service usage and outcomes
-- Document upload and secure data storage for client case management
+```bash
+cd php-app/config
+# Edit database.php with your local MySQL credentials
+```
 
-### 4. Administrative Staff
-- Oversight dashboard with analytics and real-time data
-- User and role management
-- Monitoring service effectiveness and compliance
-- Generation of compliance and outcome reports
+Update `php-app/config/database.php`:
 
-## Features & Services
+```php
+<?php
+class Database {
+    private $host = 'localhost';        // Your MySQL host
+    private $db_name = 'jokeburg_db';   // Database name
+    private $username = 'root';         // Your MySQL username
+    private $password = '';             // Your MySQL password
+    private $port = 3306;               // MySQL port (default: 3306)
+    private $charset = 'utf8mb4';
+    
+    // ... rest of the file remains the same
+}
+?>
+```
 
-### 1. Case Management
-- Detailed client profiles, including housing, health, and history
-- Progress tracking dashboards
-- Automated follow-up alerts for workers
+### 3. Set Base URL (Optional)
 
-### 2. Smart Intake and Assessment Tools
-- Dynamic, trauma-informed needs assessments (housing, addiction, mental health)
-- Immediate scoring and analysis for tailored intervention planning
+If not running from document root, update the base URL in `php-app/config/app.php`:
 
-### 3. Communication Hub
-- Built-in messaging system for secure, role-specific conversations
-- Notification system for important updates and appointments
+```php
+$base_url = "http://localhost/JOKEBURG/php-app"; // Adjust as needed
+```
 
-### 4. Resource Hub
-- Curated database of local services (housing, health, addiction treatment, employment)
-- Interactive map and directory for easy service navigation
+### 4. Start Development Server
 
-### 5. Harm Reduction Ordering Platform
-- Quick ordering and tracking for harm reduction supplies
-- Integrated supply distribution analytics
+Using PHP built-in server (recommended for development):
 
-### 6. Success and Goal Tracking
-- Individualized goal-setting templates
-- Progress visualizations encouraging client engagement and accountability
-- Milestone alerts and reward systems for motivation
+```bash
+cd php-app
+php -S localhost:8000
+```
 
-### 7. Community & Peer Support
-- Forums and group chats moderated by peer-support workers
-- Real-time access to crisis support and intervention services
+Or configure your web server to point to the `php-app` directory.
 
-### 8. Analytics and Transparency
-- Real-time data visualization and reports on community impact
-- Transparent public dashboard for stakeholders
-- Outcome tracking for continuous improvement
+## Database Setup
 
-## Standard Operating Procedures
+### 1. Create Database via phpMyAdmin
 
-### Client Workflow
-1. Client registers and completes an initial smart intake assessment
-2. Assigned outreach worker reviews results and sets preliminary care goals
-3. Regular progress checks and updates documented in the portal
-4. Client books appointments, receives reminders, and manages consent
-5. Achievement of milestones triggers review for additional goals or graduation
+1. Open phpMyAdmin in your browser (usually `http://localhost/phpmyadmin`)
+2. Login with your MySQL credentials
+3. Click "New" to create a new database
+4. Enter database name: `jokeburg_db`
+5. Select collation: `utf8mb4_unicode_ci`
+6. Click "Create"
 
-### Outreach Worker Workflow
-1. Logs daily interactions and incidents in real-time
-2. Conducts regular smart assessments and updates care plans
-3. Communicates securely with service providers to facilitate referrals
-4. Monitors client goals and supports progress
+### 2. Import Database Schema
 
-### Service Provider Workflow
-1. Receives and accepts referrals via the portal
-2. Documents interactions, assessments, and treatment updates
-3. Communicates securely with outreach and administrative staff
-4. Reviews analytics to adapt and optimize services
+1. Select the `jokeburg_db` database
+2. Click the "Import" tab
+3. Click "Choose File" and select `php-app/database/schema.sql`
+4. Ensure format is set to "SQL"
+5. Click "Import"
 
-### Administrative Workflow
-1. Reviews analytics for system-wide outcomes
-2. Manages user roles and data compliance
-3. Generates regular reports on effectiveness and identifies areas for improvement
+### 3. Import Demo Data
 
-### In-App Integrated Services
-- Emergency contact links (24/7 crisis lines)
-Appointment booking and reminders.
-Secure document handling (consents, assessments, referrals).
-Real-time geolocation tools for outreach.
-Inventory management for harm reduction supplies.
-This web application aims to foster coordinated, comprehensive, and effective responses, driving measurable success and healthier living for Cobourg’s vulnerable populations.
+1. Still in the `jokeburg_db` database
+2. Click "Import" tab again
+3. Select `php-app/database/demo_data.sql`
+4. Click "Import"
 
-Detailed Client Profiles & Dashboards
+### 4. Verify Database Setup
 
-Profile Information (Editable by Clients):
-	•	Personal Information:
-	•	Full Name
-	•	Preferred Name
-	•	Date of Birth
-	•	Contact Info (phone, email, emergency contacts)
-	•	Preferred Pronouns
-	•	Housing Status:
-	•	Current residence (if any)
-	•	Type of housing (temporary, permanent, transitional)
-	•	History of housing insecurity
-	•	Health Information:
-	•	Known health conditions
-	•	Allergies
-	•	Current medications
-	•	Primary healthcare provider
-	•	Mental Health and Addiction:
-	•	Diagnosed conditions
-	•	Substances currently used or history of use
-	•	Preferred treatment methods
-	•	Ongoing supports (therapist, counselors)
-	•	Employment and Education:
-	•	Current employment status
-	•	Educational background
-	•	Skills and job interests
-	•	Goals and Progress:
-	•	Personal goals and milestones
-	•	Recent achievements
-	•	Notes from workers (client-facing notes only)
-	•	Consent and Privacy:
-	•	Consent for data-sharing
-	•	History of consent provided or withdrawn (editable by client)
+Check that the following tables were created:
+- `users` (user accounts and authentication)
+- `clients` (client profiles and demographics)
+- `resources` (community resources directory)
+- `supply_items` (harm reduction supplies)
+- `goals` (client goals and progress)
+- `case_notes` (case management notes)
 
-Progress Tracking Dashboard (Client-facing):
-	•	Graphs or visual indicators showing progress toward goals.
-	•	Status indicators (red/yellow/green) reflecting housing stability, health, substance use reduction, and employment progress.
-	•	Task and appointment calendar.
-	•	Notifications and messages from workers (client-visible notes).
-	•	Milestone achievements and motivational badges.
+## Application Structure
 
-Automated Follow-up Alerts (For Workers):
-	•	Alerts triggered when clients miss appointments or scheduled check-ins.
-	•	Alerts for periodic updates (weekly/monthly progress reviews).
-	•	Notifications when a client’s needs-assessment indicates significant risk or urgent care is required.
-	•	Reminders for updating care plans or goal reassessment dates.
+```
+php-app/
+├── config/
+│   ├── app.php          # Main application configuration
+│   └── database.php     # Database connection settings
+├── includes/
+│   ├── header.php       # HTML head and navigation
+│   ├── navbar.php       # Main navigation menu
+│   └── footer.php       # Footer and scripts
+├── views/
+│   ├── auth/            # Login and registration pages
+│   ├── dashboard/       # User dashboards
+│   ├── resources/       # Resource directory
+│   └── ...              # Other feature pages
+├── assets/
+│   ├── css/             # Stylesheets and themes
+│   ├── js/              # JavaScript functionality
+│   └── images/          # Static images
+├── database/
+│   ├── schema.sql       # Database structure
+│   └── demo_data.sql    # Sample data for testing
+└── index.php            # Main entry point and router
+```
 
-⸻
+### Routing System
 
-2. Smart Needs Assessment Survey
+The application uses simple GET parameter routing:
+- `?page=home` - Homepage
+- `?page=login` - Login page
+- `?page=dashboard` - User dashboard
+- `?page=resources` - Resource directory
 
-Layout and Functionality:
-	•	Multi-step dynamic form (one question per screen for reduced stress).
-	•	Real-time auto-saving progress.
-	•	Mobile-responsive with easy-touch interactions (checkboxes, sliders, emotive visuals).
-	•	Smart branching logic based on prior responses.
-Example Needs Assessment Questions:
+### Key Components
 
-Housing Stability:
-	1.	Current Housing Situation:
-	•	Secure Housing (0 points)
-	•	Temporary Housing (1 point)
-	•	Shelter/Emergency Housing (2 points)
-	•	Unsheltered/Homeless (3 points)
-	2.	Length of Current Housing Situation:
-	•	Less than 30 days (3 points)
-	•	1–6 months (2 points)
-	•	6–12 months (1 point)
-	•	Over a year (0 points)
+- **Authentication**: Session-based with role checking
+- **Database**: PDO with prepared statements
+- **Frontend**: Bootstrap 5 with custom themes
+- **JavaScript**: Vanilla JS with AJAX functionality
 
-Mental Health:
-	3.	Rate your current emotional well-being:
-	•	Excellent (0 points)
-	•	Stable, but stressed (1 point)
-	•	Frequently distressed/anxious (2 points)
-	•	Constantly overwhelmed/crisis mode (3 points)
-	4.	Have you had mental health treatment/support in the past 3 months?
-	•	Yes, regular (0 points)
-	•	Yes, irregular (1 point)
-	•	No, but want to start (2 points)
-	•	No, not interested (1 point)
+## Demo Accounts
 
-Substance Use:
-	5.	How often are you currently using substances?
-	•	Not currently using (0 points)
-	•	Occasionally (monthly) (1 point)
-	•	Weekly (2 points)
-	•	Daily or nearly daily (3 points)
-	6.	Do you want support reducing substance use?
-	•	Yes, actively seeking support (3 points)
-	•	Maybe later (1 point)
-	•	No (0 points)
+### Available Test Accounts
 
-Employment:
-	7.	Current employment status:
-	•	Full-time employed (0 points)
-	•	Part-time/unstable work (1 point)
-	•	Unemployed, actively searching (2 points)
-	•	Not working, not searching (2 points)
-	8.	Desire for employment support:
-	•	Immediate need (2 points)
-	•	Interested, but later (1 point)
-	•	No assistance required (0 points)
+All demo accounts use the password: `password123`
 
-Scoring and Assessment:
-	•	Overall Score (Risk Levels):
-	•	High Need (Urgent): 12–20 points
-	•	Moderate Need: 6–11 points
-	•	Low Need: 0–5 points
+| Role | Email | Description |
+|------|-------|-------------|
+| Admin | `admin@jokeburg.ca` | System administrator with full access |
+| Outreach Worker | `worker1@jokeburg.ca` | Sarah Johnson - Field outreach worker |
+| Outreach Worker | `worker2@jokeburg.ca` | Michael Chen - Case manager |
+| Service Provider | `provider1@jokeburg.ca` | Dr. Emily Martinez - Healthcare provider |
+| Client | `client1@example.ca` | Alex Thompson - Client with housing goals |
+| Client | `client2@example.ca` | Jordan Williams - Client in temporary shelter |
+| Client | `client3@example.ca` | Sam Brown - Client with stable housing |
 
-3. Communication Messaging System
+### Password Reset Instructions
 
-Desktop Layout:
-	•	Standard, intuitive inbox layout (left sidebar with conversations, main message panel).
-	•	Conversation threads organized chronologically.
-	•	Options for quick messaging, file uploads, and emoji reactions.
+For demo purposes, passwords can be reset via phpMyAdmin:
 
-Mobile Layout:
-	•	Chat-bubble design for readability and ease-of-use.
-	•	Swipe gestures to switch conversations.
-	•	Bottom bar for quick message typing and sending attachments.
+1. Open phpMyAdmin and select `jokeburg_db`
+2. Browse the `users` table
+3. Find the user by email
+4. Edit the `password_hash` field
+5. Generate new hash: `password_hash('new_password', PASSWORD_DEFAULT)`
+6. Or use demo hash: `$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi` (= "password123")
 
-Notification Settings:
-	•	Urgent notifications: Pop-up and sound alert.
-	•	Standard notifications: Email or in-app badge notification.
-	•	Customizable notification frequency (instant, hourly, daily summary).
+### Changing Default Passwords
 
-## Community Resources
+To change passwords in production:
+1. Use the application's profile settings (when implemented)
+2. Or update via phpMyAdmin as described above
+3. Always use `password_hash()` function for security
 
-### Curated Service List (Cobourg)
+## AJAX Endpoints
 
-#### Transition House Emergency Shelter
-- **Services:** Shelter services, meals, referrals
-- **Phone:** (905) 377-0378
-- **Website:** transitionhouse.ca
+The application uses JavaScript's `fetch()` API for AJAX requests. Main helper function in `assets/js/main.js`:
 
-#### Northumberland Hills Hospital Community Mental Health
-- **Services:** Counseling, addiction services
-- **Phone:** (905) 377-9891
-- **Website:** nhh.ca
+### AJAX Helper Function
 
-#### Fourcast Addiction Services
-- **Services:** Counseling, addiction support
-- **Phone:** (905) 377-9111
-- **Website:** fourcast.ca
+```javascript
+function makeRequest(url, options = {}) {
+    const defaults = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    
+    const config = { ...defaults, ...options };
+    
+    return fetch(url, config)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Request failed:', error);
+            showNotification('An error occurred. Please try again.', 'danger');
+            throw error;
+        });
+}
+```
 
-#### Salvation Army Cobourg
-- **Services:** Food bank, emergency supplies
-- **Phone:** (905) 373-9440
-- **Website:** salvationarmy.ca
+### Current Endpoints (Available in Node.js backend)
 
-#### Cornerstone Family Violence Prevention Centre
-- **Services:** Crisis support, shelter for families
-- **Phone:** (905) 372-0746
-- **Website:** cornerstonenorthumberland.ca
+| Method | Endpoint | Description | Parameters |
+|--------|----------|-------------|------------|
+| POST | `/api/auth/login` | User authentication | `email`, `password` |
+| POST | `/api/auth/register` | User registration | `email`, `password`, `role` |
+| GET | `/api/auth/me` | Get current user | - |
+| GET | `/api/resources` | Get community resources | - |
+| POST | `/api/resources` | Add new resource | Resource data |
+| PUT | `/api/resources/:id` | Update resource | Resource data |
 
-#### Green Wood Coalition
-- **Services:** Street outreach, harm reduction, peer support
-- **Phone:** (905) 885-8700
-- **Website:** greenwoodcoalition.com
+### Sample AJAX Request
 
-### Harm Reduction Supply Workflow
+```javascript
+// Login example
+makeRequest('/api/auth/login', {
+    method: 'POST',
+    body: JSON.stringify({
+        email: 'admin@jokeburg.ca',
+        password: 'password123'
+    })
+})
+.then(data => {
+    console.log('Login successful:', data);
+    showNotification('Welcome back!', 'success');
+})
+.catch(error => {
+    console.error('Login failed:', error);
+});
+```
 
-#### Workflow Process
-1. Outreach worker selects client (using unique client code or name)
-2. Worker orders specific harm reduction supplies (e.g., naloxone, clean syringes, wound care kits)
-3. Inventory is automatically updated
-4. Supplies marked as delivered upon client receipt
-5. Workers record notes about supply use or client feedback
+### CSRF Protection
 
-#### Products Carried
-- Naloxone kits
-- Sterile needles and syringes
-- Safe disposal containers
-- Wound care kits
-- Sanitary/hygiene products
-- Basic first aid supplies
+For production deployment:
+- Implement CSRF tokens in forms
+- Validate tokens on server-side
+- Include token in AJAX headers
 
-#### Inventory Management
-- Admins can add/remove products, update quantities, and set reorder alerts
-- Real-time inventory tracking dashboard for administrators and outreach teams
+### Authentication Requirements
 
-## Contributing
+- Most endpoints require valid session
+- Role-based access control enforced
+- Session timeout after inactivity
 
-We welcome contributions to the JOKEBURG project! Please follow our development workflow and contributing guidelines outlined in the [Project Setup](#project-setup) section.
+## Error Logging & Troubleshooting
 
-### Getting Started
-1. Review the development workflow and tasklist
-2. Set up your development environment
-3. Choose a feature or task from the workflow phases
-4. Submit a pull request with your improvements
+### Enable PHP Error Logging
 
-### Contact
-For questions about contributing or the project, please open an issue in this repository.
+#### 1. Configure php.ini
+
+```ini
+; Enable error logging
+log_errors = On
+error_log = /path/to/php-errors.log
+
+; For development - display errors
+display_errors = On
+display_startup_errors = On
+
+; For production - hide errors from users
+display_errors = Off
+display_startup_errors = Off
+```
+
+#### 2. Application-Level Logging
+
+Add to `config/app.php`:
+
+```php
+// Enable error reporting for development
+if ($_ENV['APP_ENV'] === 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+
+// Custom error handler
+function logError($message, $context = []) {
+    $log_message = date('Y-m-d H:i:s') . " - " . $message;
+    if (!empty($context)) {
+        $log_message .= " - Context: " . json_encode($context);
+    }
+    error_log($log_message);
+}
+```
+
+### Database Error Handling
+
+Example with try/catch:
+
+```php
+try {
+    $database = new Database();
+    $db = $database->getConnection();
+    
+    $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+    
+} catch(PDOException $e) {
+    logError("Database error: " . $e->getMessage());
+    showAlert("Database connection failed. Please try again later.", "danger");
+}
+```
+
+### Common Issues & Fixes
+
+#### 1. Database Connection Failed
+
+**Symptoms**: "Connection error" on page load
+**Solutions**:
+- Check MySQL service is running: `sudo service mysql start`
+- Verify credentials in `config/database.php`
+- Ensure database `jokeburg_db` exists
+- Check PHP MySQL extension: `php -m | grep mysql`
+
+#### 2. Permission Denied Errors
+
+**Symptoms**: 403 errors, file access issues
+**Solutions**:
+```bash
+# Set proper permissions
+chmod 755 php-app/
+chmod 644 php-app/*.php
+chmod 755 php-app/assets/
+```
+
+#### 3. Session Issues
+
+**Symptoms**: Login doesn't persist, frequent logouts
+**Solutions**:
+- Check session directory permissions
+- Verify session settings in php.ini
+- Clear browser cookies and cache
+
+#### 4. CORS Errors (if using separate frontend)
+
+**Symptoms**: "CORS policy" errors in console
+**Solutions**:
+```php
+// Add to header of API endpoints
+header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+```
+
+### Sample Error Log Entry
+
+```
+2024-01-15 14:30:25 - Database error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'jokeburg_db.users' doesn't exist
+2024-01-15 14:30:25 - Context: {"page": "login", "user_ip": "127.0.0.1"}
+```
+
+## Security & Validation
+
+### Input Validation & Sanitization
+
+#### Form Validation Example
+
+```php
+function validateEmail($email) {
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+function sanitizeInput($input) {
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+// Usage
+$email = validateEmail($_POST['email']);
+$name = sanitizeInput($_POST['name']);
+```
+
+#### JavaScript Validation
+
+```javascript
+function validateForm(form) {
+    const email = form.querySelector('#email').value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!emailRegex.test(email)) {
+        showNotification('Please enter a valid email address', 'danger');
+        return false;
+    }
+    
+    return true;
+}
+```
+
+### Database Security
+
+#### Prepared Statements (Already Implemented)
+
+```php
+// Secure - using prepared statements
+$stmt = $db->prepare("SELECT * FROM users WHERE email = ? AND role = ?");
+$stmt->execute([$email, $role]);
+
+// NEVER do this - SQL injection vulnerable
+$query = "SELECT * FROM users WHERE email = '$email'";
+```
+
+### Session Security
+
+#### Current Implementation
+
+```php
+// In config/app.php
+session_start();
+
+// Session timeout (30 minutes)
+if (isset($_SESSION['last_activity']) && 
+    (time() - $_SESSION['last_activity'] > 1800)) {
+    session_unset();
+    session_destroy();
+    redirectTo('?page=login');
+}
+$_SESSION['last_activity'] = time();
+```
+
+### Password Security
+
+```php
+// Hash passwords (already implemented in demo_data.sql)
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// Verify passwords
+if (password_verify($password, $stored_hash)) {
+    // Password is correct
+}
+```
+
+## Responsive UI Testing
+
+### Supported Breakpoints
+
+The application uses Bootstrap 5 responsive grid system:
+
+- **Extra Small (xs)**: < 576px (Mobile phones)
+- **Small (sm)**: ≥ 576px (Large phones)
+- **Medium (md)**: ≥ 768px (Tablets)
+- **Large (lg)**: ≥ 992px (Desktops)
+- **Extra Large (xl)**: ≥ 1200px (Large desktops)
+
+### Testing Procedure
+
+#### 1. Browser Developer Tools
+
+```javascript
+// Test different screen sizes
+// Chrome DevTools -> Toggle device toolbar (Ctrl+Shift+M)
+```
+
+Recommended test devices:
+- iPhone 12 Pro (390 × 844)
+- iPad (768 × 1024)
+- Desktop (1920 × 1080)
+
+#### 2. Manual Testing Checklist
+
+**Mobile (≤ 576px)**:
+- [ ] Navigation collapses to hamburger menu
+- [ ] Forms stack vertically
+- [ ] Tables become horizontally scrollable
+- [ ] Buttons are finger-friendly (min 44px)
+- [ ] Text remains readable (min 16px)
+
+**Tablet (768px - 991px)**:
+- [ ] Two-column layouts work properly
+- [ ] Cards arrange in responsive grid
+- [ ] Sidebar collapses appropriately
+
+**Desktop (≥ 992px)**:
+- [ ] Full navigation menu visible
+- [ ] Multi-column layouts display correctly
+- [ ] Hover effects work properly
+
+### CSS Utilities Used
+
+```css
+/* Responsive utilities in main.css */
+.mobile-only { display: block; }
+.desktop-only { display: none; }
+
+@media (min-width: 768px) {
+    .mobile-only { display: none; }
+    .desktop-only { display: block; }
+}
+```
+
+### Testing Tools
+
+- **Browser DevTools**: Built-in responsive testing
+- **BrowserStack**: Cross-browser testing (optional)
+- **Responsive Design Mode**: Firefox developer tools
+
+## QA Checklist
+
+### Pre-Deployment Testing
+
+#### 1. Authentication & Authorization
+- [ ] Login with admin account works
+- [ ] Login with worker account works
+- [ ] Login with client account works
+- [ ] Invalid credentials are rejected
+- [ ] Session timeout works correctly
+- [ ] Role-based page access enforced
+- [ ] Logout functionality works
+
+#### 2. Database Operations
+- [ ] Database connection successful
+- [ ] All demo data imported correctly
+- [ ] User data displays properly
+- [ ] No SQL errors in logs
+
+#### 3. AJAX Functionality
+- [ ] Notifications display correctly
+- [ ] Error handling works for failed requests
+- [ ] Loading states show appropriately
+- [ ] Forms submit without page refresh
+
+#### 4. Responsive Design
+- [ ] Mobile navigation works (hamburger menu)
+- [ ] Forms are usable on mobile devices
+- [ ] Tables are readable on small screens
+- [ ] Images scale appropriately
+- [ ] Text remains readable at all sizes
+
+#### 5. Error Handling
+- [ ] 404 page displays for invalid routes
+- [ ] Database errors show user-friendly messages
+- [ ] PHP errors are logged (not displayed to users)
+- [ ] JavaScript errors don't break the page
+
+#### 6. Security
+- [ ] Passwords are hashed in database
+- [ ] Sessions expire after timeout
+- [ ] Input is sanitized and validated
+- [ ] SQL injection protection works
+- [ ] XSS protection in place
+
+### Manual Testing Script
+
+```bash
+# 1. Fresh installation test
+cd /tmp
+git clone https://github.com/acesonder/JOKEBURG.git
+cd JOKEBURG/php-app
+
+# 2. Database setup test
+# - Import schema.sql via phpMyAdmin
+# - Import demo_data.sql via phpMyAdmin
+
+# 3. Application test
+php -S localhost:8000
+
+# 4. Open browser and test:
+# - http://localhost:8000
+# - Login with admin@jokeburg.ca / password123
+# - Navigate through all major pages
+# - Test mobile view (DevTools responsive mode)
+# - Check browser console for errors
+```
+
+### Verification Checklist
+
+- [ ] **README instructions are accurate and complete**
+- [ ] **All code blocks are copy-paste runnable**
+- [ ] **Demo accounts work as documented**
+- [ ] **Database imports successfully via phpMyAdmin**
+- [ ] **Application runs without external dependencies**
+- [ ] **Error logging is configured and working**
+- [ ] **Responsive design verified on multiple screen sizes**
+- [ ] **AJAX features work without errors**
+- [ ] **Security measures are properly implemented**
 
 ---
 
-*Together, we can create meaningful change for Cobourg's community.*
+## Support & Contributing
+
+For issues or contributions, please:
+1. Check the troubleshooting section above
+2. Review error logs for specific issues
+3. Submit detailed bug reports with:
+   - PHP version
+   - MySQL version
+   - Browser and version
+   - Steps to reproduce
+   - Error messages or logs
+
+---
+
+**JOKEBURG** - Cobourg Community Success Platform  
+*Empowering our community through technology and compassion*
