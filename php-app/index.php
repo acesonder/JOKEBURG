@@ -58,6 +58,9 @@ switch($page) {
     case 'themes':
         include 'views/admin/themes.php';
         break;
+    case 'responsive-test':
+        include 'views/responsive-test.php';
+        break;
     default:
         include 'views/404.php';
         break;
