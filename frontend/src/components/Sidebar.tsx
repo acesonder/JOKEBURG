@@ -11,6 +11,7 @@ const Sidebar: React.FC = () => {
     { path: '/messages', label: 'Messages', icon: '💬' },
     { path: '/resources', label: 'Resources', icon: '📚' },
     { path: '/supplies', label: 'Supplies', icon: '📦' },
+    { path: '/homelessness', label: 'Homelessness Info', icon: '🏘️' },
   ];
 
   return (
