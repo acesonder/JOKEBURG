@@ -63,6 +63,24 @@ $action = $_GET['action'] ?? '';
 // Security: Sanitize page parameter
 $page = preg_replace('/[^a-zA-Z0-9_-]/', '', $page);
 
+// Error reporting configuration
+if (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV'] === 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+
+// Custom error logging function
+function logError($message, $context = []) {
+    $log_message = date('Y-m-d H:i:s') . " - " . $message;
+    if (!empty($context)) {
+        $log_message .= " - Context: " . json_encode($context);
+    }
+    error_log($log_message);
+}
+
 // Available pages
 $public_pages = ['home', 'about', 'contact', 'login', 'register'];
 $auth_pages = ['dashboard', 'profile', 'messages', 'logout'];

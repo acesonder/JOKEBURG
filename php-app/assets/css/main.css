@@ -504,3 +504,64 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Responsive Utility Classes */
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .btn {
+    min-height: 44px;
+    font-size: 1rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.125rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .nav-link, .dropdown-item {
+    min-height: 44px;
+    line-height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  .form-control, .form-select {
+    min-height: 44px;
+  }
+}

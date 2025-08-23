@@ -33,7 +33,24 @@ class Database {
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch(PDOException $exception) {
-            echo "Connection error: " . $exception->getMessage();
+            $error_message = "Database connection error: " . $exception->getMessage();
+            error_log($error_message);
+            
+            // Show user-friendly message
+            if (function_exists('logError')) {
+                logError($error_message, [
+                    'host' => $this->host,
+                    'database' => $this->db_name,
+                    'port' => $this->port
+                ]);
+            }
+            
+            // In production, don't show detailed error to users
+            if (ini_get('display_errors')) {
+                echo "Connection error: " . $exception->getMessage();
+            } else {
+                echo "Database connection failed. Please contact administrator.";
+            }
         }
         
         return $this->conn;
